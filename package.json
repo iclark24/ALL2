@@ -1,0 +1,18 @@
+{
+  "name": "Rails-React-Boilerplate-master",
+  "version": "1.0.0",
+  "description": "A Rails w/ React Boilerplate to help you get started building faster.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

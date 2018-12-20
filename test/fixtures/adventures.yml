@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  acp: 1
+  tier: 1
+  downtime: 1
+  renown: 1
+  tcpvalue: 1
+  character: one
+
+two:
+  name: MyString
+  description: MyString
+  acp: 1
+  tier: 1
+  downtime: 1
+  renown: 1
+  tcpvalue: 1
+  character: two

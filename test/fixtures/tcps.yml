@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tierone: 1
+  tiertwo: 1
+  tierthree: 1
+  tierfour: 1
+  character: one
+
+two:
+  tierone: 1
+  tiertwo: 1
+  tierthree: 1
+  tierfour: 1
+  character: two
