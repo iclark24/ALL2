@@ -2,6 +2,8 @@ class Api::CcLassesController < ApplicationController
   before_action :set_cc_lass, only: [:show, :update, :destroy]
   before_action :set_character, only: [:create]
 
+# classes controller
+  
   def index
     render json: Cc_lass.all
   end
