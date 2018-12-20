@@ -77,7 +77,6 @@ class CharacterForm extends React.Component {
             placeholder="URL"
             value={image}
             onChange={this.handleChange}
-            required
             />
           </Form.Field>
 
