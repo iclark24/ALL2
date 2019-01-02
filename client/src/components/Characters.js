@@ -54,7 +54,7 @@ class Characters extends React.Component {
             <Icon name="plus"/>New Character
           </Button>
         </Link>
-        <Grid columns={4} centered>
+        <Grid stackable columns={4} centered>
             {this.rendercharacters()}
         </Grid>
       </div>
