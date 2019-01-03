@@ -1,5 +1,5 @@
 import React from "react"
-import {Segment, Header,  Icon, Grid, Button, Image, Card} from "semantic-ui-react"
+import {Segment, Confirm,  Icon, Grid, Button, Image, Card} from "semantic-ui-react"
 import { Link, } from "react-router-dom";
 import CharacterForm from "./CharacterForm";
 
@@ -8,7 +8,11 @@ class Character extends React.Component {
 
   state = {
     editing: false,
+    open: false,
     }
+
+  open = () => this.setState({ open: true })
+  close = () => this.setState({ open: false })
 
   toggleEdit = () => this.setState({ editing: !this.state.editing, })
 
@@ -34,9 +38,10 @@ class Character extends React.Component {
             Gold: {gold}
           </Card.Content>
           <Segment basic>
-            <Button icon color="red" onClick={() => handledelete(id)}>
+            <Button icon color="red" onClick={this.open}>
               <Icon name="trash"/>
             </Button>
+            <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => handledelete(id)}/>
             <Button color="green" href={`/characters/${id}/cc_lasses/new`}>
               <Icon name="shield alternate"/>Add Class
             </Button>
