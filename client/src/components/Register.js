@@ -58,7 +58,7 @@ class Register extends React.Component {
             required
             name='password'
             value={password}
-            placeholder='Password'
+            placeholder='Must Be 8 Characters Minimum'
             type='password'
             onChange={this.handleChange}
           />
@@ -67,7 +67,7 @@ class Register extends React.Component {
             required
             name='passwordConfirmation'
             value={passwordConfirmation}
-            placeholder='Password Confirmation'
+            placeholder='Must Match'
             type='password'
             onChange={this.handleChange}
           />
