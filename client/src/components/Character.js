@@ -21,7 +21,7 @@ class Character extends React.Component {
     return (
       <Grid.Column>
 
-        <Card>
+        <Card link>
           <Image href={`/characters/${id}`} src={image} />
           <Card.Content href={`/characters/${id}`}>
             <Card.Header>{name}</Card.Header>
