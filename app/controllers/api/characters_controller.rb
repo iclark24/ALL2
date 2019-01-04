@@ -6,11 +6,11 @@ class Api::CharactersController < ApplicationController
 
 
   def index
-    render json: @user.characters.all
+    render json: [@user.characters.all, @user]
   end
   
   def show
-    render json: [@character, @character.cc_lasses]
+    render json: [@character, @character.cc_lasses, @character.adventures, @character.magicitems]
   end
   
   def create

@@ -14,6 +14,7 @@ export class AuthProvider extends React.Component {
         history.push("/");
       })
     .catch( res => {
+      window.alert(res.response.data.errors.full_messages)
       console.log(res);
     })
   }
@@ -25,6 +26,7 @@ export class AuthProvider extends React.Component {
         history.push("/");
       })
       .catch( res => {
+        window.alert(res.response.data.errors.full_messages)
         console.log(res);
       })
   }
@@ -36,6 +38,7 @@ export class AuthProvider extends React.Component {
         history.push('/login');
       })
       .catch( res => {
+        window.alert(res.response.data.errors.full_messages)
         console.log(res);
       })
   }

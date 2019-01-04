@@ -12,6 +12,7 @@ import CharDetails from "./components/CharDetails"
 import ClassForm from "./components/ClassForm"
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdvForm from './components/AdvForm'
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
               <ProtectedRoute exact path="/characters/new" component={CharacterForm}/>
               <ProtectedRoute exact path="/characters/:id" component={CharDetails}/>
               <ProtectedRoute exact path="/characters/:character_id/cc_lasses/new" component= {ClassForm}/>
+              <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
               <Route component={NoMatch} />
             </Switch>
           </Container>

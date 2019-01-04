@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
@@ -11,12 +11,22 @@ class Navbar extends React.Component {
     
     if (user) {
       return (
-        <Menu.Menu position='right'>
+        <Fragment>
+          <Link to='/characters'>
           <Menu.Item
-            name='logout'
-            onClick={ () => handleLogout(this.props.history) }
-          />
-        </Menu.Menu>
+            name='Characters'
+            id='characters'
+            active={this.props.location.pathname === '/characters'}
+            />
+          </Link>
+
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='logout'
+              onClick={ () => handleLogout(this.props.history) }
+              />
+          </Menu.Menu>
+        </Fragment>
       )
     } else {
       return (
@@ -41,21 +51,15 @@ class Navbar extends React.Component {
   }
   
   render() {
+    const { auth: { user, handleLogout, }, location, } = this.props;
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu size="huge" pointing secondary>
           <Link to='/'>
             <Menu.Item
               name='Home'
               id='home'
               active={this.props.location.pathname === '/'}
-            />
-          </Link>
-          <Link to='/characters'>
-            <Menu.Item
-              name='Characters'
-              id='characters'
-              active={this.props.location.pathname === '/characters'}
             />
           </Link>
             { this.rightNavItems() }

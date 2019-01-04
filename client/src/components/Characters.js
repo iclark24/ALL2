@@ -1,5 +1,5 @@
-import React from "react"
-import { Button, Icon, Grid} from "semantic-ui-react"
+import React, {Fragment} from "react"
+import { Button, Icon, Grid, Header} from "semantic-ui-react"
 import axios from "axios"
 import { Link, } from "react-router-dom";
 import Character from "./Character"
@@ -7,7 +7,8 @@ import Character from "./Character"
 class Characters extends React.Component {
 
   state = { 
-    characters: [],  
+    characters: [],
+    user: "",
   }
 
   handleDelete = (id) => {
@@ -32,7 +33,7 @@ class Characters extends React.Component {
   componentDidMount() {
     axios.get("/api/characters")
       .then( res => {
-        this.setState({ characters: res.data, });
+        this.setState({ characters: res.data[0], user: res.data[1] });
       })
       .catch( err => {
         console.log(err);
@@ -48,7 +49,8 @@ class Characters extends React.Component {
 
   render() {
     return(
-      <div>
+      <Fragment>
+        <Header textAlign='center' as="h1">Welcome {this.state.user.name} </Header>
         <Link to="/characters/new">
           <Button style={{ marginBottom: "30px"}} color="green">
             <Icon name="plus"/>New Character
@@ -57,7 +59,7 @@ class Characters extends React.Component {
         <Grid stackable columns={4} centered>
             {this.rendercharacters()}
         </Grid>
-      </div>
+      </Fragment>
 
 
     )

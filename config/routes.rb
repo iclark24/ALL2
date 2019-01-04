@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :characters do
       resources :cc_lasses
+      resources :adventures
     end
   end
   get '*other', to: 'static#index'
