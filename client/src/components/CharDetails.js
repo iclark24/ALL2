@@ -1,6 +1,5 @@
 import React from "react"
-import {Segment, Header,  Icon, Grid, Button, Image, Card, Item} from "semantic-ui-react"
-import { Link, } from "react-router-dom";
+import {Segment, Header,  Icon, Grid, Button, Item} from "semantic-ui-react"
 import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
@@ -35,9 +34,19 @@ class CharDetails extends React.Component {
 
   renderadventures = () => {
     return this.state.adventures.map( c => (
-      <Adventure key={c.id} {...c}/>
+      <Adventure key={c.id} {...c} adventuredelete={this.adventureDelete}/>
     )
     )
+  }
+
+  adventureDelete = (id) => {
+    // /api/characters/:character_id/adventures/:id
+    axios.delete(`/api/characters/${this.state.character.id}/adventures/${id}`)
+      .then( res => {
+        const {adventures,} = this.state;
+        this.setState({ adventures: adventures.filter(m => m.id !== id )})
+        this.props.history.push("/characters")
+      })
   }
     
   render() {

@@ -1,7 +1,6 @@
 import React from "react"
 import {Segment, Confirm,  Icon, Grid, Button, Image, Card} from "semantic-ui-react"
-import { Link, } from "react-router-dom";
-import CharacterForm from "./CharacterForm";
+
 
 
 class Character extends React.Component {
@@ -17,7 +16,7 @@ class Character extends React.Component {
   toggleEdit = () => this.setState({ editing: !this.state.editing, })
 
   render() {
-    const {id, name, race, image, level, downtime, renown, gold, handleedit, handledelete, } = this.props
+    const {id, name, race, image, level, downtime, renown, gold, handledelete, } = this.props
     return (
       <Grid.Column>
 

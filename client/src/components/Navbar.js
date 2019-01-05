@@ -51,7 +51,6 @@ class Navbar extends React.Component {
   }
   
   render() {
-    const { auth: { user, handleLogout, }, location, } = this.props;
     return (
       <div>
         <Menu size="huge" pointing secondary>

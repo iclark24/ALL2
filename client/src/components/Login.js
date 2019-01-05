@@ -23,7 +23,7 @@ class Login extends React.Component {
       <Segment basic>
         <Header as='h1' textAlign='center'>Login</Header>
         <Grid centered>
-          <Grid.Column width="6">
+          <Grid.Column mobile={16} tablet={16} computer="6">
             <Form size="huge" onSubmit={this.handleSubmit}>
               <Form.Input
                 label="Email"

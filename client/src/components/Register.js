@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Button, Form, Segment, Header, Grid, GridColumn } from 'semantic-ui-react';
+import { Button, Form, Segment, Header, Grid, } from 'semantic-ui-react';
 
 class Register extends React.Component {
   state = { email: '', password: '', passwordConfirmation: '', dci: '', name: '' }
@@ -29,7 +29,7 @@ class Register extends React.Component {
       <Segment basic>
         <Header as='h1' textAlign='center'>Register</Header>
         <Grid centered>
-          <Grid.Column width="6">
+          <Grid.Column mobile={16} tablet={16} computer="6">
             <Form size="huge" widths="equal" onSubmit={this.handleSubmit}>
               <Form.Input
                 label="Email"

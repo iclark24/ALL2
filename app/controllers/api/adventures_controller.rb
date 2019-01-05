@@ -1,6 +1,6 @@
 class Api::AdventuresController < ApplicationController
   before_action :set_adventure, only: [:show, :update, :destroy]
-  before_action :set_character, only: [:create]
+  before_action :set_character, only: [:create, :destroy]
 
 # adventure controller
   
@@ -13,6 +13,9 @@ class Api::AdventuresController < ApplicationController
   # end
   
   def create
+    # params[:spent]
+    newgold = @character.gold - params[:spent].to_i
+    Character.modgold(newgold, @character.id)
     adventure = @character.adventures.new(adventure_params)
 
     if adventure.save
@@ -31,6 +34,8 @@ class Api::AdventuresController < ApplicationController
   end
 
   def destroy
+    newgold = @character.gold + @adventure.spent
+    Character.modgold(newgold, @character.id)
     @adventure.destroy
   end
 
@@ -45,6 +50,6 @@ class Api::AdventuresController < ApplicationController
     end
 
     def adventure_params
-      params.require(:adventure).permit(:a_name, :description, :acp, :tier, :downtime, :renown, :tcpvalue, :character_id)
+      params.require(:adventure).permit(:a_name, :description, :acp, :tier, :downtime, :renown, :tcpvalue, :spent, :character_id)
     end
 end
