@@ -1,8 +1,11 @@
 import React, {Fragment} from "react"
-import { Button, Icon, Grid, Header} from "semantic-ui-react"
+import { Button, Icon, Grid, Container} from "semantic-ui-react"
 import axios from "axios"
 import { Link, } from "react-router-dom";
 import Character from "./Character"
+import { Header, P } from "../Styles/home";
+import {World} from '../Styles/backgrounds'
+
 
 class Characters extends React.Component {
 
@@ -49,17 +52,19 @@ class Characters extends React.Component {
 
   render() {
     return(
-      <Fragment>
-        <Header textAlign='center' as="h1">Welcome {this.state.user.name} </Header>
-        <Link to="/characters/new">
-          <Button style={{ marginBottom: "30px"}} color="green">
-            <Icon name="plus"/>New Character
-          </Button>
-        </Link>
-        <Grid stackable columns={4} centered>
-            {this.rendercharacters()}
-        </Grid>
-      </Fragment>
+      <World faded>
+        <Container>
+          <Header textAlign='center' as="h1">{this.state.user.name}'s Characters </Header>
+          <Link to="/characters/new">
+            <Button style={{ marginBottom: "30px"}} color="green">
+              <Icon name="plus"/>New Character
+            </Button>
+          </Link>
+          <Grid stackable columns={4} centered>
+              {this.rendercharacters()}
+          </Grid>
+        </Container>
+      </World>
 
 
     )

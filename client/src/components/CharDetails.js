@@ -1,8 +1,12 @@
 import React from "react"
-import {Segment, Header,  Icon, Grid, Button, Item} from "semantic-ui-react"
+import {Segment, Icon, Grid, Button, Item, Container, Header} from "semantic-ui-react"
 import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
+// import {Header,} from "../Styles/home"
+import {World} from '../Styles/backgrounds'
+
+
 
 class CharDetails extends React.Component {
 
@@ -52,10 +56,13 @@ class CharDetails extends React.Component {
   render() {
     const {id, name, race, image, level, downtime, renown, gold, } = this.state.character
     return (
-      <div>
+      <World faded>
+      <Container>
+
       <Segment>
         <Header>Character Details</Header>
         <Item.Group>
+
           <Item>
             <Item.Image floated="left" size="small" bordered src={image} />
             <Item.Content verticalAlign="middle">
@@ -74,8 +81,8 @@ class CharDetails extends React.Component {
           </Item>
         </Item.Group>
       </Segment>
-      <Segment basic>
-        <Grid columns={5} centered>
+      <Segment>
+        <Grid columns={5} textAlign="center" centered>
           {this.rendercclasses()}
         </Grid>
       </Segment>
@@ -85,7 +92,8 @@ class CharDetails extends React.Component {
         </Button>
         {this.renderadventures()}
       </Segment>
-      </div>
+      </Container>
+      </World>
     )
   }
 

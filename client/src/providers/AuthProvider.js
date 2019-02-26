@@ -26,7 +26,7 @@ export class AuthProvider extends React.Component {
         history.push("/");
       })
       .catch( res => {
-        window.alert(res.response.data.errors.full_messages)
+        window.alert("Incorrect Login Information")
         console.log(res);
       })
   }

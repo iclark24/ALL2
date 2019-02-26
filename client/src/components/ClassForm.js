@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
-import {Button, Form, Segment, Header} from "semantic-ui-react"
+import {Button, Form, Segment, Input } from "semantic-ui-react"
+import {World} from '../Styles/backgrounds'
+import {Container, Header,} from "../Styles/home"
+
 
 class ClassForm extends React.Component {
   state = { 
@@ -33,37 +36,41 @@ class ClassForm extends React.Component {
   render() {
     const {c_name, level,} = this.state;
     return (
-      <Segment basic padded>
-        {this.props.id?
-              <Header>Edit Class</Header>
-            :
-        <Header>New Class</Header>
-        }
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label>Class</label>
-            <input
-            name="c_name"
-            placeholder="Class"
-            value={c_name}
-            onChange={this.handleChange}
-            required
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Level</label>
-            <input
-            name="level"
-            type="number"
-            placeholder="0"
-            value={level}
-            onChange={this.handleChange}
-            required
-            />
-          </Form.Field>
-          <Button color="green">Submit</Button>
-        </Form>
-      </Segment>
+      <World faded>
+        <Container>
+          <Segment basic padded>
+            {this.props.id?
+                  <Header>Edit Class</Header>
+                  :
+                  <Header>New Class</Header>
+                }
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <Input
+                label="Class"
+                name="c_name"
+                placeholder="Class"
+                value={c_name}
+                onChange={this.handleChange}
+                required
+                />
+              </Form.Field>
+              <Form.Field>
+                <Input
+                label="Level"
+                name="level"
+                type="number"
+                placeholder="0"
+                value={level}
+                onChange={this.handleChange}
+                required
+                />
+              </Form.Field>
+              <Button color="green">Submit</Button>
+            </Form>
+          </Segment>
+        </Container>
+      </World>
     )
   }
 }

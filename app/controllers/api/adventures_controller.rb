@@ -14,7 +14,7 @@ class Api::AdventuresController < ApplicationController
   
   def create
     # params[:spent]
-    newgold = @character.gold - params[:spent].to_i
+    newgold = @character.gold - params[:spent].to_f
     Character.modgold(newgold, @character.id)
     adventure = @character.adventures.new(adventure_params)
 

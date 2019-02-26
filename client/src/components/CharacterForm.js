@@ -1,6 +1,8 @@
 import React, {Fragment} from "react";
 import axios from "axios";
-import {Button, Form, Header, Icon} from "semantic-ui-react"
+import {Button, Form, Icon, Segment} from "semantic-ui-react"
+import {World} from '../Styles/backgrounds'
+import {Container, Header} from "../Styles/home"
 
 class CharacterForm extends React.Component {
   state = { 
@@ -32,69 +34,74 @@ class CharacterForm extends React.Component {
   render() {
     const {name, level, xp, race, downtime, renown, gold, image,} = this.state;
     return (
-      <Fragment>
-        <Header textAlign="center" as="h1">New Character</Header>
-        <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px"}} color="green">
-          <Icon name="times"/>Close Form
-        </Button>
+      <World faded>
+        <Container>
+          <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px"}} color="green">
+            <Icon name="times"/>Close Form
+          </Button>
 
-        {this.props.id?
-              <Header>Edit Character</Header>
-            :
-        <Header>New Character</Header>
-        }
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label>Name</label>
-            <input
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={this.handleChange}
-            required
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Race</label>
-            <input
-            name="race"
-            placeholder="Race"
-            value={race}
-            onChange={this.handleChange}
-            required
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Gold</label>
-            <input
-            name="gold"
-            type="number"
-            placeholder="0"
-            value={gold}
-            onChange={this.handleChange}
-            required
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Img URL</label>
-            <input
-            name="image"
-            placeholder="URL"
-            value={image}
-            onChange={this.handleChange}
-            />
-          </Form.Field>
+          {this.props.id?
+                <Header>Edit Character</Header>
+                :
+                <Header>New Character</Header>
+              }
+              <br/>
+        
+          <Segment>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label>Name</label>
+                <input
+                name="name"
+                placeholder="Name"
+                value={name}
+                onChange={this.handleChange}
+                required
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Race</label>
+                <input
+                name="race"
+                placeholder="Race"
+                value={race}
+                onChange={this.handleChange}
+                required
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Gold</label>
+                <input
+                name="gold"
+                type="number"
+                placeholder="0"
+                value={gold}
+                onChange={this.handleChange}
+                required
+                />
+              </Form.Field>
+              <Form.Field>
+                <label>Img URL</label>
+                <input
+                name="image"
+                placeholder="URL"
+                value={image}
+                onChange={this.handleChange}
+                />
+              </Form.Field>
 
-        <div>
-          <p>Level: {level}</p>
-          <p>EXP: {xp}</p>
-          <p>Downtime: {downtime}</p>
-          <p>Renown: {renown}</p>
-        </div>
+            <div>
+              <p>Level: {level}</p>
+              <p>EXP: {xp}</p>
+              <p>Downtime: {downtime}</p>
+              <p>Renown: {renown}</p>
+            </div>
 
-          <Button color="green">Submit</Button>
-        </Form>
-      </Fragment>
+              <Button color="green">Submit</Button>
+            </Form>
+          </Segment>
+        </Container>
+      </World>
     )
   }
 }

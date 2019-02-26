@@ -19,7 +19,6 @@ class Character extends React.Component {
     const {id, name, race, image, level, downtime, renown, gold, handledelete, } = this.props
     return (
       <Grid.Column>
-
         <Card link>
           <Image href={`/characters/${id}`} src={image} />
           <Card.Content href={`/characters/${id}`}>
