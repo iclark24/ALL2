@@ -14,29 +14,37 @@ class Api::AdventuresController < ApplicationController
   
   def create
     # params[:spent]
-    newgold = @character.gold - params[:spent].to_f
-    Character.modgold(newgold, @character.id)
+    character = @character
+    character = Character.updater(character, params, "new")
+    # newgold = @character.gold - params[:spent].to_f
+    # Character.modgold(newgold, @character.id)
     adventure = @character.adventures.new(adventure_params)
 
-    if adventure.save
+    if adventure.save && character.save
       render json: adventure
     else
       render json: adventure.errors, status: 422
     end
   end
 
-  def update
-    if @adventure.update(adventure_params)
-      render json: @adventure
-    else
-      render json: @adventure.errors, status: 422
-    end
-  end
+  # def update
+  #   if @adventure.update(adventure_params)
+  #     render json: @adventure
+  #   else
+  #     render json: @adventure.errors, status: 422
+  #   end
+  # end
 
   def destroy
-    newgold = @character.gold + @adventure.spent
-    Character.modgold(newgold, @character.id)
-    @adventure.destroy
+    adventure = @adventure
+    params = Adventure.paramer(adventure)
+    character = @character
+    character = Character.updater(character, params, "delete")
+    # newgold = @character.gold + @adventure.spent
+    # Character.modgold(newgold, @character.id)
+    if character.save
+      @adventure.destroy
+    end
   end
 
   private
