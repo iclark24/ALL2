@@ -30,4 +30,25 @@ class Character < ApplicationRecord
   end
 
 
+  def self.grab(cid)
+    select('u.name username, characters.id, level, characters.cname, xp, race, downtime, renown, gold, characters.image image, user_id')
+    .joins('INNER JOIN users u ON u.id = characters.user_id')
+    .where(id: cid )
+  end
+
+  def self.random()
+    ids = Character.order("RANDOM()").limit(4).pluck(:id)
+
+    one = Character.grab(ids[0])
+    two = Character.grab(ids[1])
+    three = Character.grab(ids[2])
+    four = Character.grab(ids[3])
+
+    characterlist = [one, two, three, four]
+
+    return characterlist
+
+  end
+
+
 end

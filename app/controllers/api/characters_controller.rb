@@ -1,5 +1,5 @@
 class Api::CharactersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:rindex]
   before_action :set_character, only: [:show, :update, :destroy]
   before_action :set_params, only: [:create]
   before_action :set_user, only: [:index, :create]
@@ -9,6 +9,13 @@ class Api::CharactersController < ApplicationController
     render json: [@user.characters.all, @user]
   end
   
+  def rindex
+
+    rand_list = Character.random()    
+
+    render json: rand_list
+  end
+
   def show
     render json: [@character, @character.cc_lasses, @character.adventures, @character.magicitems]
   end
@@ -45,7 +52,7 @@ class Api::CharactersController < ApplicationController
     end
 
     def character_params
-      @params.require(:character).permit(:name, :level, :xp, :race, :downtime, :renown, :gold, :image,)
+      @params.require(:character).permit(:cname, :level, :xp, :race, :downtime, :renown, :gold, :image,)
     end
 
     def set_user

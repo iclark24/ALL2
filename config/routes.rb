@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :cc_lasses
       resources :adventures
     end
+    get '/rindex', to: 'characters#rindex'
   end
   get '*other', to: 'static#index'
+
 end

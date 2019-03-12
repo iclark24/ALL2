@@ -54,7 +54,7 @@ class CharDetails extends React.Component {
   }
     
   render() {
-    const {id, name, race, image, level, downtime, renown, gold, } = this.state.character
+    const {id, cname, race, image, level, downtime, renown, gold, } = this.state.character
     return (
       <World faded>
       <Container>
@@ -66,7 +66,7 @@ class CharDetails extends React.Component {
           <Item>
             <Item.Image floated="left" size="small" bordered src={image} />
             <Item.Content verticalAlign="middle">
-              <Item.Header>{name}</Item.Header>
+              <Item.Header>{cname}</Item.Header>
               <Item.Meta>{race}</Item.Meta>
               <Item.Description>
               <p>Level: {level}</p>

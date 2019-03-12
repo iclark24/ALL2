@@ -6,13 +6,13 @@ import {Container, Header} from "../Styles/home"
 
 class CharacterForm extends React.Component {
   state = { 
-    name: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "",
+    cname: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "",
     };
 
   componentDidMount() {
-    const { id, name, level, xp, race, downtime, renown, gold, image } = this.props;
+    const { id, cname, level, xp, race, downtime, renown, gold, image } = this.props;
     if (id){
-      this.setState({  name: name, level: level, xp: xp, race: race, downtime: downtime, renown: renown, gold: gold, image: image, });
+      this.setState({  cname: cname, level: level, xp: xp, race: race, downtime: downtime, renown: renown, gold: gold, image: image, });
     }
   }
 
@@ -32,12 +32,12 @@ class CharacterForm extends React.Component {
   
 
   render() {
-    const {name, level, xp, race, downtime, renown, gold, image,} = this.state;
+    const {cname, level, xp, race, downtime, renown, gold, image,} = this.state;
     return (
       <World faded>
         <Container>
           <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px"}} color="green">
-            <Icon name="times"/>Close Form
+            <Icon cname="times"/>Close Form
           </Button>
 
           {this.props.id?
@@ -52,9 +52,9 @@ class CharacterForm extends React.Component {
               <Form.Field>
                 <label>Name</label>
                 <input
-                name="name"
+                name="cname"
                 placeholder="Name"
-                value={name}
+                value={cname}
                 onChange={this.handleChange}
                 required
                 />

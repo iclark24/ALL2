@@ -45,7 +45,10 @@ class Characters extends React.Component {
 
   rendercharacters = () => {
     return this.state.characters.map( c => (
-      <Character key={c.id} {...c} handleedit={this.handleEdit} handledelete={this.handleDelete}/>
+      <Character key={c.id} {...c}
+       username={this.state.user.name}
+       handleedit={this.handleEdit}
+       handledelete={this.handleDelete}/>
     )
     )
   }
