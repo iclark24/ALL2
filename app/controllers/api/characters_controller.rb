@@ -1,5 +1,5 @@
 class Api::CharactersController < ApplicationController
-  before_action :authenticate_user!, except: [:rindex]
+  before_action :authenticate_user!, except: [:rindex, :show]
   before_action :set_character, only: [:show, :update, :destroy]
   before_action :set_params, only: [:create]
   before_action :set_user, only: [:index, :create]

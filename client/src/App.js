@@ -29,7 +29,7 @@ class App extends Component {
                 <Route exact path="/register" component={Register} />
                 <ProtectedRoute exact path="/characters" component={Characters} />
                 <ProtectedRoute exact path="/characters/new" component={CharacterForm}/>
-                <ProtectedRoute exact path="/characters/:id" component={CharDetails}/>
+                <Route exact path="/characters/:id" component={CharDetails}/>
                 <ProtectedRoute exact path="/characters/:character_id/cc_lasses/new" component= {ClassForm}/>
                 <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
                 <Route component={NoMatch} />

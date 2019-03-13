@@ -3,6 +3,8 @@ import {Segment, Icon, Grid, Button, Item, Container, Header} from "semantic-ui-
 import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
+import { AuthConsumer, } from "../providers/AuthProvider";
+
 // import {Header,} from "../Styles/home"
 import {World} from '../Styles/backgrounds'
 
@@ -54,7 +56,9 @@ class CharDetails extends React.Component {
   }
     
   render() {
-    const {id, cname, race, image, level, downtime, renown, gold, } = this.state.character
+    const {id, cname, race, image, level, downtime, renown, gold, user_id } = this.state.character
+    const { auth: { user }, } = this.props;
+
     return (
       <World faded>
       <Container>
@@ -87,9 +91,18 @@ class CharDetails extends React.Component {
         </Grid>
       </Segment>
       <Segment>
-        <Button color="green" href={`/characters/${id}/adventures/new`}>
-          <Icon name="plus"/>New Adventure
-        </Button>
+        {
+          user ?
+
+            user.id === user_id ?
+              <Button color="green" href={`/characters/${id}/adventures/new`}>
+                <Icon name="plus"/>New Adventure
+              </Button>
+            :
+            null
+          :
+          null
+        }
         {this.renderadventures()}
       </Segment>
       </Container>
@@ -99,4 +112,12 @@ class CharDetails extends React.Component {
 
 }
 
-export default CharDetails
+const ConnectedDetails = (props) => (
+  <AuthConsumer>
+    { auth => 
+      <CharDetails { ...props } auth={auth} />
+    }
+  </AuthConsumer>
+)
+
+export default ConnectedDetails

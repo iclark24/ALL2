@@ -1,6 +1,9 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Button, Form, Segment, Header, Grid, } from 'semantic-ui-react';
+import { Button, Form, Segment, Grid, Header} from 'semantic-ui-react';
+import {World} from '../Styles/backgrounds'
+import {Container, } from "../Styles/home"
+
 
 class Register extends React.Component {
   state = { email: '', password: '', passwordConfirmation: '', dci: '', name: '' }
@@ -26,61 +29,61 @@ class Register extends React.Component {
     const { email, password, dci, name, passwordConfirmation } = this.state;
   
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Register</Header>
-        <Grid centered>
-          <Grid.Column mobile={16} tablet={16} computer="6">
-            <Form size="huge" widths="equal" onSubmit={this.handleSubmit}>
-              <Form.Input
-                label="Email"
-                autoFocus
-                required         
-                name='email'
-                value={email}
-                placeholder='Email'
-                onChange={this.handleChange}
-                />
-              <Form.Input
-                label="Name"
-                required         
-                name='name'
-                value={name}
-                placeholder='Name'
-                onChange={this.handleChange}
-                />
-              <Form.Input
-                label="DCI#"
-                required         
-                name='dci'
-                value={dci}
-                placeholder='DCI#'
-                onChange={this.handleChange}
-                />
-              <Form.Input
-                label="Password"
-                required
-                name='password'
-                value={password}
-                placeholder='Must Be 8 Characters Minimum'
-                type='password'
-                onChange={this.handleChange}
-                />
-              <Form.Input
-                label="Password Confirmation"
-                required
-                name='passwordConfirmation'
-                value={passwordConfirmation}
-                placeholder='Must Match'
-                type='password'
-                onChange={this.handleChange}
-                />
-              <Segment textAlign='center' basic>
-                <Button primary type='submit'>Submit</Button>
-              </Segment>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+      <World>
+        <Container>
+          <Segment>
+            <Header as='h1' textAlign='center'>Register</Header>
+                <Form size="huge" widths="equal" onSubmit={this.handleSubmit}>
+                  <Form.Input
+                    label="Email"
+                    autoFocus
+                    required         
+                    name='email'
+                    value={email}
+                    placeholder='Email'
+                    onChange={this.handleChange}
+                    />
+                  <Form.Input
+                    label="Name"
+                    required         
+                    name='name'
+                    value={name}
+                    placeholder='Name'
+                    onChange={this.handleChange}
+                    />
+                  <Form.Input
+                    label="DCI#"
+                    required         
+                    name='dci'
+                    value={dci}
+                    placeholder='DCI#'
+                    onChange={this.handleChange}
+                    />
+                  <Form.Input
+                    label="Password"
+                    required
+                    name='password'
+                    value={password}
+                    placeholder='Must Be 8 Characters Minimum'
+                    type='password'
+                    onChange={this.handleChange}
+                    />
+                  <Form.Input
+                    label="Password Confirmation"
+                    required
+                    name='passwordConfirmation'
+                    value={passwordConfirmation}
+                    placeholder='Must Match'
+                    type='password'
+                    onChange={this.handleChange}
+                    />
+                  <Segment textAlign='center' basic>
+                    <Button primary type='submit'>Submit</Button>
+                  </Segment>
+                </Form>
+          </Segment>
+        </Container>
+      </World>
     )
   }
 }
