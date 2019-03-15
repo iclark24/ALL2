@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 import axios from "axios";
-import {Button, Form, Icon, Segment} from "semantic-ui-react"
+import {Button, Form, Icon, Card, Image, Segment, } from "semantic-ui-react"
 import {World} from '../Styles/backgrounds'
 import {Container, Header} from "../Styles/home"
 
@@ -34,10 +34,9 @@ class CharacterForm extends React.Component {
   render() {
     const {cname, level, xp, race, downtime, renown, gold, image,} = this.state;
     return (
-      <World faded>
-        <Container>
+        <Segment basic textAlign="center" >
           <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px"}} color="green">
-            <Icon cname="times"/>Close Form
+            <Icon name="times"/>Close Form
           </Button>
 
           {this.props.id?
@@ -47,7 +46,9 @@ class CharacterForm extends React.Component {
               }
               <br/>
         
-          <Segment>
+          <Card centered>
+            <Image bordered src={image}/>
+            <Segment>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <label>Name</label>
@@ -99,9 +100,9 @@ class CharacterForm extends React.Component {
 
               <Button color="green">Submit</Button>
             </Form>
-          </Segment>
-        </Container>
-      </World>
+            </Segment>
+          </Card>
+        </Segment>
     )
   }
 }

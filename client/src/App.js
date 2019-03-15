@@ -21,8 +21,8 @@ class App extends Component {
       <>
         <Navbar/>
         <FetchUser>
-          {/* <World> */}
-            {/* <Container> */}
+          <World>
+            <Container style={{ paddingTop: "50px"}}>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
@@ -34,8 +34,8 @@ class App extends Component {
                 <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
                 <Route component={NoMatch} />
               </Switch>
-            {/* </Container> */}
-          {/* </World> */}
+            </Container>
+          </World>
         </FetchUser>
       </>
     );

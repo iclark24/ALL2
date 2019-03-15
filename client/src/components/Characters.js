@@ -55,8 +55,8 @@ class Characters extends React.Component {
 
   render() {
     return(
-      <World faded>
-        <Container>
+      <>
+
           <Header textAlign='center' as="h1">{this.state.user.name}'s Characters </Header>
           <Link to="/characters/new">
             <Button style={{ marginBottom: "30px"}} color="green">
@@ -66,9 +66,8 @@ class Characters extends React.Component {
           <Grid stackable columns={4} centered>
               {this.rendercharacters()}
           </Grid>
-        </Container>
-      </World>
 
+      </>
 
     )
   }

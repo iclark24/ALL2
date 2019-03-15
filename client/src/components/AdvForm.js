@@ -44,8 +44,6 @@ class AdvForm extends React.Component {
     const {a_name, description, acp, tier, downtime, renown, tcpvalue, spent, } = this.state;
     return (
 
-      <World faded>
-        <Container>
           <Segment padded>
             {this.props.id?
                   <Header>Edit Adventure</Header>
@@ -145,8 +143,7 @@ class AdvForm extends React.Component {
               <Button color="green">Submit</Button>
             </Form>
           </Segment>
-        </Container>
-      </World>
+
     )
   }
 }

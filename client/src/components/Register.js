@@ -29,8 +29,7 @@ class Register extends React.Component {
     const { email, password, dci, name, passwordConfirmation } = this.state;
   
     return (
-      <World>
-        <Container>
+
           <Segment>
             <Header as='h1' textAlign='center'>Register</Header>
                 <Form size="huge" widths="equal" onSubmit={this.handleSubmit}>
@@ -82,8 +81,7 @@ class Register extends React.Component {
                   </Segment>
                 </Form>
           </Segment>
-        </Container>
-      </World>
+
     )
   }
 }

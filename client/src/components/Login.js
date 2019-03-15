@@ -24,8 +24,6 @@ class Login extends React.Component {
   
     return (
 
-      <World>
-        <Container>
           <Segment>
             <Header as='h1' textAlign='center'>Login</Header>
                 <Form size="huge" onSubmit={this.handleSubmit}>
@@ -52,8 +50,7 @@ class Login extends React.Component {
                   </Segment>
                 </Form>
           </Segment>
-        </Container>
-    </World>
+
     )
   }
 }

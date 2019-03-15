@@ -60,9 +60,7 @@ class CharDetails extends React.Component {
     const { auth: { user }, } = this.props;
 
     return (
-      <World faded>
-      <Container>
-
+      <>
       <Segment>
         <Header>Character Details</Header>
         <Item.Group>
@@ -105,8 +103,7 @@ class CharDetails extends React.Component {
         }
         {this.renderadventures()}
       </Segment>
-      </Container>
-      </World>
+      </>
     )
   }
 

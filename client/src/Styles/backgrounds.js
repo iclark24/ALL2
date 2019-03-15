@@ -17,5 +17,5 @@ export const World = styled.div `
   height: 95.3vh;
   top: 0px;
   ${props => faded(props.faded)};
-
+  background-size: 100 100;
 `
