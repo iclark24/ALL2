@@ -83,11 +83,11 @@ class CharDetails extends React.Component {
           </Item>
         </Item.Group>
       </Segment>
-      <Segment>
+      {/* <Segment>
         <Grid columns={5} textAlign="center" centered>
           {this.rendercclasses()}
         </Grid>
-      </Segment>
+      </Segment> */}
       <Segment>
         {
           user ?

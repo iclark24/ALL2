@@ -61,9 +61,9 @@ class Character extends React.Component {
                 <Icon name="trash"/>
               </Button>
               <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => handledelete(id)}/>
-              <Button color="green" href={`/characters/${id}/cc_lasses/new`}>
+              {/* <Button color="green" href={`/characters/${id}/cc_lasses/new`}>
                 <Icon name="shield alternate"/>Add Class
-              </Button>
+              </Button> */}
             </>
             :
             null
