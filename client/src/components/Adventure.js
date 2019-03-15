@@ -30,7 +30,7 @@ class Adventure extends React.Component {
             {description}
           </CardContent>
           <CardMeta>
-            {acp} Acp | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Spent
+            {acp} Acp | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
           </CardMeta>
           </Card>
       </Grid.Column>
