@@ -1,9 +1,9 @@
 import React, {Fragment} from "react"
-import { Button, Icon, Grid, Container} from "semantic-ui-react"
+import { Button, Icon, Grid, Header} from "semantic-ui-react"
 import axios from "axios"
 import { Link, } from "react-router-dom";
 import Character from "./Character"
-import { Header, P } from "../Styles/home";
+import {  P } from "../Styles/home";
 import {World} from '../Styles/backgrounds'
 
 
@@ -57,7 +57,7 @@ class Characters extends React.Component {
     return(
       <>
 
-          <Header textAlign='center' as="h1">{this.state.user.name}'s Characters </Header>
+          <Header textAlign="center" as="h1" style={{ color: "white"}}>{this.state.user.name}'s Characters </Header>
           <Link to="/characters/new">
             <Button style={{ marginBottom: "30px"}} color="green">
               <Icon name="plus"/>New Character
