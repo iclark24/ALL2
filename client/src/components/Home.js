@@ -1,7 +1,7 @@
 import React, {Link} from 'react';
-import { Header, Container, P } from "../Styles/home";
+import { Header, P } from "../Styles/home";
 import {World} from '../Styles/backgrounds'
-import {Button, Grid, Icon} from "semantic-ui-react"
+import {Container, Grid, Icon} from "semantic-ui-react"
 import Character from "./Character"
 import axios from "axios"
 
@@ -54,7 +54,7 @@ class Home extends React.Component {
     render() {
       return(
         <World>
-          <Container>
+          <Container style={{ paddingTop: "50px"}}>
             <Header>Adventure Awaits...</Header>
             <P>
               Welcome to the (or at least my) Dungeons & Dragons 5E Character Logsheet Tool. Still a work in progress, this tool can be used to keep track of your adventures, gold earned and spent, magic items obtained, etc. etc...

@@ -20,8 +20,8 @@ export const Container = styled.div `
 
 export const P = styled.p `
   color: white;
-  font-size: 1vw;
-  margin: 30px;
+  // font-size: 1vw;
+  margin: 30px auto;
   background: rgba(0, 0, 0, 0.75);
   width: 70%;
   text-align: center;
