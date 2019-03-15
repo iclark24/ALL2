@@ -1,8 +1,8 @@
 import React, {Fragment} from "react";
 import axios from "axios";
-import {Button, Form, Icon, Card, Image, Segment, } from "semantic-ui-react"
+import {Button, Form, Icon, Card, Image, Segment, Header } from "semantic-ui-react"
 import {World} from '../Styles/backgrounds'
-import {Container, Header} from "../Styles/home"
+import {Container, } from "../Styles/home"
 
 class CharacterForm extends React.Component {
   state = { 
@@ -40,9 +40,9 @@ class CharacterForm extends React.Component {
           </Button>
 
           {this.props.id?
-                <Header>Edit Character</Header>
+                <Header textAlign="center" as="h1" style={{ color: "white"}}>Edit Character</Header>
                 :
-                <Header>New Character</Header>
+                <Header textAlign="center" as="h1" style={{ color: "white"}}>New Character</Header>
               }
               <br/>
         
