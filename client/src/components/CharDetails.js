@@ -40,7 +40,7 @@ class CharDetails extends React.Component {
 
   renderadventures = () => {
     return this.state.adventures.map( c => (
-      <Adventure key={c.id} {...c} adventuredelete={this.adventureDelete}/>
+      <Adventure key={c.id} {...c} owner={this.state.character.user_id} adventuredelete={this.adventureDelete}/>
     )
     )
   }

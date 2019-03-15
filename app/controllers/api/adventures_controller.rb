@@ -1,4 +1,5 @@
 class Api::AdventuresController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_adventure, only: [:show, :update, :destroy]
   before_action :set_character, only: [:create, :destroy]
 
