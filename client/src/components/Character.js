@@ -33,7 +33,7 @@ class Character extends React.Component {
     const { auth: { user }, } = this.props;
 
     return (
-      <Grid.Column>
+      <Grid.Column width={4}>
         <Card link>
           <Image href={`/characters/${id}`} src={image} />
           <Card.Content href={`/characters/${id}`}>
