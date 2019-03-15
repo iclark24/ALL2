@@ -76,7 +76,7 @@ class AdvForm extends React.Component {
               </Form.Field>
               <Form.Field>
                 <Form.Input
-                  label="Adventure Check Points"
+                  label="Experience Earned"
                   name="acp"
                   placeholder="0"
                   type="number"
@@ -132,7 +132,7 @@ class AdvForm extends React.Component {
                   />
                 <Form.Field>
                   <Form.Input
-                    label="Gold Spent"
+                    label="Gold Earned"
                     name="spent"
                     placeholder="0"
                     type="number"
