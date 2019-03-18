@@ -59,7 +59,7 @@ class CharDetails extends React.Component {
 
     return (
       <>
-      <Segment>
+      <Segment compact style={{ margin: "auto"}} textAlign="center">
         <Header>Character Details</Header>
         <Item.Group>
           <Item>
