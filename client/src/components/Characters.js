@@ -59,7 +59,7 @@ class Characters extends React.Component {
       <>
 
           <Header textAlign="center" as="h1" style={{ color: "white"}}>{this.state.user.name}'s Characters </Header>
-          <Grid stackable columns={4} centered style={{ marginBottom: "50px"}}>
+          <Grid stackable columns={4} centered style={{ marginBottom: "10vh"}}>
             <Grid.Row style={{ marginTop: "30px"}}>
               <Link to="/characters/new">
                 <Button style={{ marginBottom: "30px"}} color="green">
