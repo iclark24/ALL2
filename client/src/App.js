@@ -22,7 +22,7 @@ class App extends Component {
         <Navbar/>
         <FetchUser>
           <World>
-            <Container style={{ paddingTop: "50px"}}>
+            <Container style={{ paddingTop: "50px", marginBottom: "10vh"}}>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
