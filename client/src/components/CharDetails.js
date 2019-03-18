@@ -88,7 +88,7 @@ class CharDetails extends React.Component {
           {this.rendercclasses()}
         </Grid>
       </Segment> */}
-      <Segment style={{ marginBottom: "50px"}}>
+      <Segment style={{ marginBottom: "10vh"}}>
         {
           user ?
 
