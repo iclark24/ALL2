@@ -9,20 +9,35 @@ class AdvForm extends React.Component {
   state = { 
     a_name: "",
     description: "",
-    acp: "",
+    xp: "",
     tier: "",
     downtime: "",
     renown: "",
     tcpvalue: "",
     spent: "",
     character_id: "",
+
+    character: {}
+
     };
 
   componentDidMount() {
-    const { id, a_name, description, acp, tier, downtime, renown, tcpvalue, spent, } = this.props;
+    const { id, a_name, description, xp, tier, downtime, renown, tcpvalue, spent, } = this.props;
     const { character_id } = this.props.match.params
     if (id){
-      this.setState({  a_name: a_name, description: description, acp: acp, tier: tier, downtime: downtime, renown: renown, tcpvalue: tcpvalue, spent: spent, character_id: character_id, });
+      this.setState({  a_name: a_name, description: description, xp: xp, tier: tier, downtime: downtime, renown: renown, tcpvalue: tcpvalue, spent: spent, character_id: character_id, });
+    }
+    else {
+        axios.get(`/api/characters/${this.props.match.params.character_id}`)
+        .then( res => {
+          this.setState({ character: res.data[0],
+            // cc_lasses: res.data[1],
+            // adventures: res.data[2],
+           });
+        })
+        .catch( err => {
+          console.log(err);
+        })
     }
   }
 
@@ -41,7 +56,8 @@ class AdvForm extends React.Component {
   
 
   render() {
-    const {a_name, description, acp, tier, downtime, renown, tcpvalue, spent, } = this.state;
+    const {a_name, description, xp, tier, downtime, renown, tcpvalue, spent, } = this.state;
+    const { leveltype } = this.state.character
     return (
 
           <Segment padded>
@@ -53,7 +69,7 @@ class AdvForm extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
                 <Form.Input
-                  label="Adventure"
+                  label="Adventure Name"
                   autoFocus
                   name="a_name"
                   placeholder="Adventure Name"
@@ -73,15 +89,28 @@ class AdvForm extends React.Component {
                   />
               </Form.Field>
               <Form.Field>
-                <Form.Input
+
+              { leveltype === "EXP"?
+                  <Form.Input
                   label="Experience Earned"
-                  name="acp"
+                  name="xp"
                   placeholder="0"
                   type="number"
-                  value={acp}
+                  value={xp}
                   onChange={this.handleChange}
                   required
                   />
+                :
+                  <Form.Input
+                  label="Checkpoints Earned"
+                  name="xp"
+                  placeholder="0"
+                  type="number"
+                  value={xp}
+                  onChange={this.handleChange}
+                  required
+                  />
+              }
               </Form.Field>
               <Form.Field>
                 <Form.Input

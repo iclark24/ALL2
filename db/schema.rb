@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_220532) do
+ActiveRecord::Schema.define(version: 2019_03_18_201510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_220532) do
   create_table "adventures", force: :cascade do |t|
     t.string "a_name"
     t.string "description"
-    t.integer "acp"
+    t.integer "xp"
     t.integer "tier"
     t.integer "downtime"
     t.integer "renown"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_220532) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.bigint "user_id"
+    t.string "leveltype"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 

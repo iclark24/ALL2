@@ -40,7 +40,7 @@ class CharDetails extends React.Component {
 
   renderadventures = () => {
     return this.state.adventures.map( c => (
-      <Adventure key={c.id} {...c} owner={this.state.character.user_id} adventuredelete={this.adventureDelete}/>
+      <Adventure key={c.id} {...c} leveltype={this.state.character.leveltype} owner={this.state.character.user_id} adventuredelete={this.adventureDelete}/>
     )
     )
   }
@@ -56,7 +56,7 @@ class CharDetails extends React.Component {
   }
     
   render() {
-    const {id, cname, race, image, level, downtime, renown, gold, user_id } = this.state.character
+    const {id, cname, race, image, level, downtime, renown, gold, user_id, xp, leveltype } = this.state.character
     const { auth: { user }, } = this.props;
 
     return (
@@ -71,6 +71,11 @@ class CharDetails extends React.Component {
               <Item.Meta>{race}</Item.Meta>
               <Item.Description>
               <p>Level: {level}</p>
+              { leveltype === "EXP" ?
+                <p>EXP: {xp}</p>
+              :
+                <p>ACP: {xp}</p>
+              }
               <p>Downtime: {downtime}</p>
               <p>Renown: {renown}</p>
               </Item.Description>

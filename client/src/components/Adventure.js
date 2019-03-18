@@ -1,6 +1,7 @@
 import React from "react"
 import {Grid, Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription} from "semantic-ui-react"
 import { AuthConsumer, } from "../providers/AuthProvider";
+import axios from "axios"
 
 
 class Adventure extends React.Component {
@@ -16,7 +17,7 @@ class Adventure extends React.Component {
   toggleEdit = () => this.setState({ editing: !this.state.editing, })
 
   render() {
-    const {id, a_name, description, acp, tier, downtime, renown, tcpvalue, spent, adventuredelete, owner } = this.props
+    const {id, a_name, description, xp, tier, downtime, renown, tcpvalue, spent, adventuredelete, owner } = this.props
     const { auth: { user }, } = this.props;
 
     return (
@@ -44,9 +45,15 @@ class Adventure extends React.Component {
           }
 
           </CardContent>
-          <CardMeta>
-            {acp} Exp. | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
-          </CardMeta>
+          { this.props.leveltype === "exp" ?
+            <CardMeta>
+              {xp} Exp. | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
+            </CardMeta>
+          :
+            <CardMeta>
+              {xp} ACP | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
+            </CardMeta>
+          }
           </Card>
       </>
     )

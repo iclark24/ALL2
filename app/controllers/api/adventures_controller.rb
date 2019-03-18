@@ -14,11 +14,8 @@ class Api::AdventuresController < ApplicationController
   # end
   
   def create
-    # params[:spent]
     character = @character
     character = Character.updater(character, params, "new")
-    # newgold = @character.gold - params[:spent].to_f
-    # Character.modgold(newgold, @character.id)
     adventure = @character.adventures.new(adventure_params)
 
     if adventure.save && character.save
@@ -41,8 +38,7 @@ class Api::AdventuresController < ApplicationController
     params = Adventure.paramer(adventure)
     character = @character
     character = Character.updater(character, params, "delete")
-    # newgold = @character.gold + @adventure.spent
-    # Character.modgold(newgold, @character.id)
+
     if character.save
       @adventure.destroy
     end
@@ -59,6 +55,6 @@ class Api::AdventuresController < ApplicationController
     end
 
     def adventure_params
-      params.require(:adventure).permit(:a_name, :description, :acp, :tier, :downtime, :renown, :tcpvalue, :spent, :character_id)
+      params.require(:adventure).permit(:a_name, :description, :xp, :tier, :downtime, :renown, :tcpvalue, :spent, :character_id)
     end
 end
