@@ -1,5 +1,5 @@
 import React from "react"
-import {Segment, Icon, Grid, Button, Item, Container, Header} from "semantic-ui-react"
+import {Segment, Icon, Grid, Button, Item, Container, Header, Card} from "semantic-ui-react"
 import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
@@ -64,7 +64,6 @@ class CharDetails extends React.Component {
       <Segment>
         <Header>Character Details</Header>
         <Item.Group>
-
           <Item>
             <Item.Image floated="left" size="small" bordered src={image} />
             <Item.Content verticalAlign="middle">
@@ -88,7 +87,7 @@ class CharDetails extends React.Component {
           {this.rendercclasses()}
         </Grid>
       </Segment> */}
-      <Segment style={{ marginBottom: "10vh"}}>
+      <Segment basic style={{ marginBottom: "10vh"}}>
         {
           user ?
 
@@ -101,7 +100,9 @@ class CharDetails extends React.Component {
           :
           null
         }
-        {this.renderadventures()}
+        <Card.Group stackable itemsPerRow={3} style={{ marginTop: "20px"}}>
+          {this.renderadventures()}
+        </Card.Group>
       </Segment>
       </>
     )

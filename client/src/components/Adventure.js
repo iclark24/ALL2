@@ -21,7 +21,7 @@ class Adventure extends React.Component {
 
     return (
       <>
-        <Card fluid>
+        <Card>
           <CardContent>
           <CardHeader>
             {a_name}
