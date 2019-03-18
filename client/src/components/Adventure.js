@@ -1,7 +1,6 @@
 import React from "react"
-import {Grid, Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription} from "semantic-ui-react"
+import { Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription} from "semantic-ui-react"
 import { AuthConsumer, } from "../providers/AuthProvider";
-import axios from "axios"
 
 
 class Adventure extends React.Component {

@@ -1,7 +1,6 @@
-import React, {Link} from 'react';
+import React from 'react';
 import { P } from "../Styles/home";
-import {World} from '../Styles/backgrounds'
-import {Container, Grid, Icon, Header} from "semantic-ui-react"
+import { Grid, Header} from "semantic-ui-react"
 import Character from "./Character"
 import axios from "axios"
 

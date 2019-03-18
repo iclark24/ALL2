@@ -1,12 +1,10 @@
 import React from "react"
-import {Segment, Icon, Grid, Button, Item, Container, Header, Card} from "semantic-ui-react"
+import {Segment, Icon, Button, Item, Header, Card} from "semantic-ui-react"
 import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
 import { AuthConsumer, } from "../providers/AuthProvider";
 
-// import {Header,} from "../Styles/home"
-import {World} from '../Styles/backgrounds'
 
 
 

@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Button, Form, Segment, Header, Container} from "semantic-ui-react"
-import {World} from '../Styles/backgrounds'
-import Textarea from 'react-textarea-autosize';
+import {Button, Form, Segment, Header,} from "semantic-ui-react"
 
 
 class AdvForm extends React.Component {

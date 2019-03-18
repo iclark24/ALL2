@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import axios from "axios";
 import { Button, Form, Icon, Card, Image, Segment, Header, } from "semantic-ui-react"
-import { World } from '../Styles/backgrounds'
-import { Container, } from "../Styles/home"
+
 
 class CharacterForm extends React.Component {
   state = {

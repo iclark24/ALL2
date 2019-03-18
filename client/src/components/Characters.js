@@ -1,11 +1,8 @@
-import React, {Fragment} from "react"
+import React from "react"
 import { Button, Icon, Grid, Header} from "semantic-ui-react"
 import axios from "axios"
 import { Link, } from "react-router-dom";
 import Character from "./Character"
-import {  P } from "../Styles/home";
-import {World} from '../Styles/backgrounds'
-import { AuthConsumer } from "../providers/AuthProvider";
 
 
 class Characters extends React.Component {

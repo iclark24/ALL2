@@ -1,8 +1,6 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import {World} from '../Styles/backgrounds'
 import { Button, Form, Segment, Header} from 'semantic-ui-react';
-import {Container, } from "../Styles/home"
 
 
 class Login extends React.Component {
