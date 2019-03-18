@@ -44,7 +44,7 @@ class Adventure extends React.Component {
           }
 
           </CardContent>
-          { this.props.leveltype === "exp" ?
+          { this.props.levelmeth === "exp" ?
             <CardMeta>
               {xp} Exp. | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
             </CardMeta>

@@ -55,7 +55,7 @@ class AdvForm extends React.Component {
 
   render() {
     const {a_name, description, xp, tier, downtime, renown, tcpvalue, spent, } = this.state;
-    const { leveltype } = this.state.character
+    const { levelmeth } = this.state.character
     return (
 
           <Segment padded>
@@ -88,7 +88,7 @@ class AdvForm extends React.Component {
               </Form.Field>
               <Form.Field>
 
-              { leveltype === "EXP"?
+              { levelmeth === "EXP"?
                   <Form.Input
                   label="Experience Earned"
                   name="xp"

@@ -29,7 +29,7 @@ class Character extends React.Component {
   }
 
   render() {
-    const {id, cname, race, image, level, downtime, renown, gold, handledelete, username, user_id, leveltype } = this.props
+    const {id, cname, race, image, level, downtime, renown, gold, handledelete, username, user_id, levelmeth } = this.props
     const { auth: { user }, } = this.props;
 
     return (
@@ -41,8 +41,8 @@ class Character extends React.Component {
             <Card.Meta>{race}</Card.Meta>
             <Card.Description>
             <p>Level: {level}</p>
-            <p>Leveling Method: {leveltype}</p>
-            <p>Downtime: {downtime}</p>
+            <p>Leveling Method: {levelmeth}</p>
+            <p>Downtime: {downtime} days</p>
             <p>Renown: {renown}</p>
             <p>Player: {username}</p>
             </Card.Description>

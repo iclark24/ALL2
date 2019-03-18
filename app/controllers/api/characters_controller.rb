@@ -52,7 +52,7 @@ class Api::CharactersController < ApplicationController
     end
 
     def character_params
-      @params.require(:character).permit(:cname, :level, :xp, :race, :downtime, :renown, :gold, :image, :leveltype)
+      @params.require(:character).permit(:cname, :level, :xp, :race, :downtime, :renown, :gold, :image, :levelmeth)
     end
 
     def set_user

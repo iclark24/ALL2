@@ -5,7 +5,7 @@ import { Button, Form, Icon, Card, Image, Segment, Header, } from "semantic-ui-r
 
 class CharacterForm extends React.Component {
   state = {
-    cname: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "", leveltype: "",
+    cname: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "", levelmeth: "",
   };
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class CharacterForm extends React.Component {
 
 
   render() {
-    const { cname, level, xp, race, downtime, renown, gold, image, leveltype } = this.state;
+    const { cname, level, xp, race, downtime, renown, gold, image, levelmeth } = this.state;
     return (
       <Segment basic textAlign="center" >
         <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px" }} color="green">
@@ -98,16 +98,16 @@ class CharacterForm extends React.Component {
                 <Form.Radio
                   label='EXP'
                   value='EXP'
-                  name='leveltype'
-                  checked={leveltype === 'EXP'}
+                  name='levelmeth'
+                  checked={levelmeth === 'EXP'}
                   onChange={this.handleChangetwo}
                   required
                 />
                 <Form.Radio
                   label='ACP'
                   value='ACP'
-                  name='leveltype'
-                  checked={leveltype === 'ACP'}
+                  name='levelmeth'
+                  checked={levelmeth === 'ACP'}
                   onChange={this.handleChangetwo}
                   required
                 />

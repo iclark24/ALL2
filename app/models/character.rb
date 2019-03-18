@@ -31,7 +31,7 @@ class Character < ApplicationRecord
   end
   
   def self.levelup(character)
-    if character.leveltype === "EXP"
+    if character.levelmeth === "EXP"
       case character.xp
         when 0..299
           character.level = 1
@@ -124,7 +124,7 @@ class Character < ApplicationRecord
   end
 
   def self.grab(cid)
-    select('u.name username, characters.id, level, characters.cname, xp, race, downtime, renown, gold, leveltype,characters.image image, user_id')
+    select('u.name username, characters.id, level, characters.cname, xp, race, downtime, renown, gold, levelmeth,characters.image image, user_id')
     .joins('INNER JOIN users u ON u.id = characters.user_id')
     .where(id: cid )
   end
