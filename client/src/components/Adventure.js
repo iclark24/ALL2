@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription} from "semantic-ui-react"
+import { Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription, Grid} from "semantic-ui-react"
 import { AuthConsumer, } from "../providers/AuthProvider";
 
 
@@ -20,21 +20,29 @@ class Adventure extends React.Component {
     const { auth: { user }, } = this.props;
 
     return (
-      <>
-        <Card>
+      <Grid.Column width="8">
+        <Card fluid>
           <CardContent>
           <CardHeader>
             {a_name}
+            <Button floated="right" size="mini" icon color="red" onClick={this.open}>
+                <Icon name="trash"/>
+            </Button>
           </CardHeader>
           {
             user?
           
             owner === user.id ?
             <CardDescription>
-              <Button size="mini" icon color="red" onClick={this.open}>
-                <Icon name="trash"/>
-              </Button>
-              <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => adventuredelete(id)}/>
+              
+              <Confirm 
+              open={this.state.open}
+              onCancel={this.close}
+              onConfirm={() => adventuredelete(id)}
+              content="Are you sure you want to delete this adventure? Doing so can change all details of your character."
+              cancelButton='On second thought...'
+              confirmButton="I can live with that"
+              />
               {description}
             </CardDescription>
           :
@@ -46,15 +54,15 @@ class Adventure extends React.Component {
           </CardContent>
           { this.props.levelmeth === "exp" ?
             <CardMeta>
-              {xp} Exp. | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
+              {xp} Exp. | Tier {tier} | {tcpvalue} Tcp | {renown} Renown | {downtime} Downtime |{spent} Gold Earned
             </CardMeta>
           :
             <CardMeta>
-              {xp} ACP | Tier {tier} | {tcpvalue} Tcp | {spent} Gold Earned
+              {xp} ACP | Tier {tier} | {tcpvalue} Tcp | {renown} Renown | {downtime} Downtime | {spent} Gold Earned
             </CardMeta>
           }
           </Card>
-      </>
+      </Grid.Column>
     )
   }
 
