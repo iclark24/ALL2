@@ -5,7 +5,7 @@ import { Button, Form, Icon, Card, Image, Segment, Header, } from "semantic-ui-r
 
 class CharacterForm extends React.Component {
   state = {
-    cname: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "", levelmeth: "",
+    cname: "", level: 1, xp: 0, race: "", downtime: 0, renown: 0, gold: "", image: "", levelmeth: "EXP",
   };
 
   componentDidMount() {
@@ -18,6 +18,12 @@ class CharacterForm extends React.Component {
   handleChange = (e) => {
     const { target: { name, value, } } = e;
     this.setState( {[name]: value} );
+    if (name === "xp"){
+      if(this.state.xp < 0){ 
+        this.setState({xp: 0})
+      }
+    this.manageExpChange(this.state.xp)
+    }
   }
 
   handleChangetwo = (e, data) => {
@@ -33,6 +39,144 @@ class CharacterForm extends React.Component {
       })
   }
 
+  manageExpChange = (xp) =>{
+    const {levelmeth} = this.state
+    if(levelmeth === "EXP") {
+      switch(true){
+          case xp <= 299:
+            this.setState({level: 1})
+            break
+          case xp <= 899:
+            this.setState({level: 2})
+            break
+          case xp <= 2699:
+            this.setState({level: 3})
+            break
+          case xp <= 6499:
+            this.setState({level: 4})
+            break
+          case xp <= 13999:
+            this.setState({level: 5})
+            break
+          case xp <= 22999:
+            this.setState({level: 6})
+            break
+          case xp <= 33999:
+            this.setState({level: 7})
+            break
+          case xp <= 47999:
+            this.setState({level: 8})
+            break
+          case xp <= 63999:
+            this.setState({level: 9})
+            break
+          case xp <= 84999:
+            this.setState({level: 10})
+            break
+          case xp <= 99999:
+            this.setState({level: 11})
+            break
+          case xp <= 11999:
+            this.setState({level: 12})
+            break
+          case xp <= 139999:
+            this.setState({level: 13})
+            break
+          case xp <= 164999:
+            this.setState({level: 14})
+            break
+          case xp <= 194999:
+            this.setState({level: 15})
+            break
+          case xp <= 224999:
+            this.setState({level: 16})
+            break
+          case xp <= 264999:
+            this.setState({level: 17})
+            break
+          case xp <= 304999:
+            this.setState({level: 18})
+            break
+          case xp <= 354999:
+            this.setState({level: 19})
+            break
+          case xp >= 355000:
+            this.setState({level: 20})
+            break
+          default:
+            this.setState({level: 1})
+          break
+
+      }
+    }
+    else {
+      switch(true){
+        case xp <= 3:
+          this.setState({level: 1})
+          break
+        case xp <= 7:
+          this.setState({level: 2})
+          break
+        case xp <= 11:
+          this.setState({level: 3})
+          break
+        case xp <= 15:
+          this.setState({level: 4})
+          break
+        case xp <= 23:
+          this.setState({level: 5})
+          break
+        case xp <= 31:
+          this.setState({level: 6})
+          break
+        case xp <= 39:
+          this.setState({level: 7})
+          break
+        case xp <= 47:
+          this.setState({level: 8})
+          break
+        case xp <= 55:
+          this.setState({level: 9})
+          break
+        case xp <= 63:
+          this.setState({level: 10})
+          break
+        case xp <= 71:
+          this.setState({level: 11})
+          break
+        case xp <= 79:
+          this.setState({level: 12})
+          break
+        case xp <= 87:
+          this.setState({level: 13})
+          break
+        case xp <= 95:
+          this.setState({level: 14})
+          break
+        case xp <= 103:
+          this.setState({level: 15})
+          break
+        case xp <= 111:
+          this.setState({level: 16})
+          break
+        case xp <= 119:
+          this.setState({level: 17})
+          break
+        case xp <= 127:
+          this.setState({level: 18})
+          break
+        case xp <= 135:
+          this.setState({level: 19})
+          break
+        case xp >= 136:
+          this.setState({level: 20})
+          break
+        default:
+          this.setState({level: 1})
+        break
+      }
+    }
+  }
 
   render() {
     const { cname, level, xp, race, downtime, renown, gold, image, levelmeth } = this.state;
@@ -54,8 +198,8 @@ class CharacterForm extends React.Component {
           <Segment>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
-                <label>Name</label>
-                <input
+                <Form.Input
+                  label="Name"
                   name="cname"
                   placeholder="Name"
                   value={cname}
@@ -64,8 +208,8 @@ class CharacterForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Race</label>
-                <input
+                <Form.Input
+                  label="Race"
                   name="race"
                   placeholder="Race"
                   value={race}
@@ -74,8 +218,8 @@ class CharacterForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Gold</label>
-                <input
+                <Form.Input
+                  label="Gold"
                   name="gold"
                   type="number"
                   placeholder="0"
@@ -85,8 +229,8 @@ class CharacterForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label>Img URL</label>
-                <input
+                <Form.Input
+                  label="Img URL"
                   name="image"
                   placeholder="URL"
                   value={image}
@@ -112,9 +256,34 @@ class CharacterForm extends React.Component {
                   required
                 />
               </Form.Group>
+                <Form.Field>
+
+                {levelmeth === "ACP" ?
+                  <Form.Input
+                  label="ACP"
+                  name="xp"
+                  type="number"
+                  placeholder="ACP"
+                  value={xp}
+                  onChange={this.handleChange}
+                  required
+                  />
+                  :
+                  <Form.Input
+                  label="EXP"
+                  name="xp"
+                  type="number"
+                  placeholder="EXP"
+                  value={xp}
+                  onChange={this.handleChange}
+                  required
+                  />
+                }
+                </Form.Field>
+
               <div>
                 <p>Level: {level}</p>
-                <p>EXP: {xp}</p>
+
                 <p>Downtime: {downtime}</p>
                 <p>Renown: {renown}</p>
               </div>
