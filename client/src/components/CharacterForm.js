@@ -18,12 +18,7 @@ class CharacterForm extends React.Component {
   handleChange = (e) => {
     const { target: { name, value, } } = e;
     this.setState( {[name]: value} );
-    if (name === "xp"){
-      if(this.state.xp < 0){ 
-        this.setState({xp: 0})
-      }
     this.manageExpChange(this.state.xp)
-    }
   }
 
   handleChangetwo = (e, data) => {
@@ -223,6 +218,7 @@ class CharacterForm extends React.Component {
                   name="gold"
                   type="number"
                   placeholder="0"
+                  min={0}
                   value={gold}
                   onChange={this.handleChange}
                   required
@@ -265,6 +261,7 @@ class CharacterForm extends React.Component {
                   type="number"
                   placeholder="ACP"
                   value={xp}
+                  min={0}
                   onChange={this.handleChange}
                   required
                   />
@@ -275,6 +272,7 @@ class CharacterForm extends React.Component {
                   type="number"
                   placeholder="EXP"
                   value={xp}
+                  min={0}
                   onChange={this.handleChange}
                   required
                   />

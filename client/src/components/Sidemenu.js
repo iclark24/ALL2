@@ -1,6 +1,7 @@
 import React from "react"
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { AuthConsumer, } from "../providers/AuthProvider";
+import JJH from "./JJH"
 
 
 class SideMenu extends React.Component {
@@ -29,15 +30,14 @@ class SideMenu extends React.Component {
               as={Menu}
               animation='overlay'
               icon='labeled'
-              inverted
               onHide={this.handleSidebarHide}
               vertical
+              inverted
               visible={visible}
-              width='thin'
+              width='wide'
           >
-            <Menu.Item as='a'>
-              <Icon name='home' />
-                Placeholder
+            <Menu.Item>
+              <JJH/>
             </Menu.Item>
             <Menu.Item as='a'>
               <Icon name='gamepad' />
