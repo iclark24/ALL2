@@ -37,6 +37,7 @@ class CharDetails extends React.Component {
   }
 
   renderadventures = () => {
+    console.log(this.state.adventures)
     return this.state.adventures.map( c => (
       <Adventure key={c.id} {...c} levelmeth={this.state.character.levelmeth} owner={this.state.character.user_id} adventuredelete={this.adventureDelete}/>
     )
@@ -106,12 +107,15 @@ class CharDetails extends React.Component {
         {/* <Card.Group stackable itemsPerRow={2} style={{ marginTop: "20px"}}>
           {this.renderadventures()}
         </Card.Group> */}
-        <Segment textAlign="center" style={{overflow: "scroll", maxHeight: "45vh", background: "rgba(133, 109, 35, 0.5)"}}>
-
-          <Grid centered stackable verticalAlign="top" columns={2} style={{ marginTop: "20px"}}>
-            {this.renderadventures()}
-          </Grid>
-        </Segment>
+        {this.state.adventures.length > 0 ?
+          <Segment textAlign="center" style={{overflow: "scroll", maxHeight: "45vh", background: "rgba(133, 109, 35, 0.5)"}}>
+            <Grid centered stackable verticalAlign="top" columns={2} style={{ marginTop: "20px"}}>
+              {this.renderadventures()}
+            </Grid>
+          </Segment>
+        :
+          null
+        }
       </Segment>
       </>
     )

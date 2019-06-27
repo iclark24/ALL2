@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Sidebar } from 'semantic-ui-react'
 import Characters from "./components/Characters"
 import Home from './components/Home';
 import Login from "./components/Login"
@@ -14,6 +15,7 @@ import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdvForm from './components/AdvForm'
 import {World} from './Styles/backgrounds'
+import SideMenu from './components/Sidemenu'
 
 class App extends Component {
   render() {
@@ -22,19 +24,24 @@ class App extends Component {
         <Navbar/>
         <FetchUser>
           <World>
-            <Container style={{ paddingTop: "50px", marginBottom: "10vh"}}>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-                <ProtectedRoute exact path="/characters" component={Characters} />
-                <ProtectedRoute exact path="/characters/new" component={CharacterForm}/>
-                <Route exact path="/characters/:id" component={CharDetails}/>
-                <ProtectedRoute exact path="/characters/:character_id/cc_lasses/new" component= {ClassForm}/>
-                <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
-                <Route component={NoMatch} />
-              </Switch>
-            </Container>
+            <Sidebar.Pushable>
+              <SideMenu/>
+              <Sidebar.Pusher>
+                <Container style={{ paddingTop: "50px", marginBottom: "10vh"}}>
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                    <ProtectedRoute exact path="/characters" component={Characters} />
+                    <ProtectedRoute exact path="/characters/new" component={CharacterForm}/>
+                    <Route exact path="/characters/:id" component={CharDetails}/>
+                    <ProtectedRoute exact path="/characters/:character_id/cc_lasses/new" component= {ClassForm}/>
+                    <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
+                    <Route component={NoMatch} />
+                  </Switch>
+                </Container>
+              </Sidebar.Pusher>
+            </Sidebar.Pushable>
           </World>
         </FetchUser>
       </>
