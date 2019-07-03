@@ -4,6 +4,7 @@ import axios from "axios"
 import Cclass from "./Cclass"
 import Adventure from "./Adventure"
 import { AuthConsumer, } from "../providers/AuthProvider";
+import {Beauton} from "../Styles/bitsNBobs"
 
 
 
@@ -60,7 +61,7 @@ class CharDetails extends React.Component {
 
     return (
       <>
-      <Segment compact style={{ margin: "auto"}} textAlign="center">
+      <Segment compact style={{ margin: "0 auto" }} textAlign="center">
         <Header>Character Details</Header>
         <Item.Group>
           <Item>
@@ -96,9 +97,12 @@ class CharDetails extends React.Component {
           user ?
 
             user.id === user_id ?
-              <Button color="green" href={`/characters/${id}/adventures/new`}>
-                <Icon name="plus"/>New Adventure
-              </Button>
+              // <Button color="green" href={`/characters/${id}/adventures/new`}>
+              //   <Icon name="plus"/>New Adventure
+              // </Button>
+                  <Beauton color="green" shadow="lime" text="white" hover="darkgreen" href={`/characters/${id}/adventures/new`}>
+                    <Icon name="plus"/> New Adventure
+                  </Beauton> 
             :
             null
           :
@@ -108,8 +112,8 @@ class CharDetails extends React.Component {
           {this.renderadventures()}
         </Card.Group> */}
         {this.state.adventures.length > 0 ?
-          <Segment textAlign="center" style={{overflow: "scroll", maxHeight: "45vh", background: "rgba(133, 109, 35, 0.5)"}}>
-            <Grid centered stackable verticalAlign="top" columns={2} style={{ marginTop: "20px"}}>
+          <Segment textAlign="center" style={{overflowY: "scroll", maxHeight: "45vh",}}>
+            <Grid centered stackable verticalAlign="top" columns={2} >
               {this.renderadventures()}
             </Grid>
           </Segment>

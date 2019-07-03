@@ -1,7 +1,7 @@
 import React from "react"
 import { AuthConsumer, } from "../providers/AuthProvider";
 import {Segment, Confirm,  Icon, Grid, Button, Image, Card} from "semantic-ui-react"
-
+import {Beauton} from "../Styles/bitsNBobs"
 
 
 class Character extends React.Component {
@@ -58,9 +58,10 @@ class Character extends React.Component {
             user.id === user_id ?
             <>
             <p style={{ color: "green"}}>Your Character</p>
-              <Button icon color="red" onClick={this.open}>
+              <Beauton icon color="red" shadow="orange" text="white" hover="darkred" onClick={this.open}>
+              {/* <Button icon color="red" onClick={this.open}> */}
                 <Icon name="trash"/>
-              </Button>
+              </Beauton>
               <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => handledelete(id)}/>
               {/* <Button color="green" href={`/characters/${id}/cc_lasses/new`}>
                 <Icon name="shield alternate"/>Add Class

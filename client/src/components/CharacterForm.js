@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Button, Form, Icon, Card, Image, Segment, Header, } from "semantic-ui-react"
+import {Beauton} from "../Styles/bitsNBobs"
 
 
 class CharacterForm extends React.Component {
@@ -177,9 +178,9 @@ class CharacterForm extends React.Component {
     const { cname, level, xp, race, downtime, renown, gold, image, levelmeth } = this.state;
     return (
       <Segment basic textAlign="center" >
-        <Button onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px" }} color="green">
+        <Beauton color="green" shadow="lime" text="white" hover="darkgreen" onClick={() => this.props.history.push("/characters")} style={{ marginBottom: "30px" }}>
           <Icon name="times" />Close Form
-          </Button>
+        </Beauton> 
 
         {this.props.id ?
           <Header textAlign="center" as="h1" style={{ color: "white" }}>Edit Character</Header>
@@ -191,7 +192,7 @@ class CharacterForm extends React.Component {
         <Card centered>
           <Image bordered src={image} />
           <Segment>
-            <Form onSubmit={this.handleSubmit}>
+            <Form id="characterform" onSubmit={this.handleSubmit}>
               <Form.Field>
                 <Form.Input
                   label="Name"
@@ -286,7 +287,10 @@ class CharacterForm extends React.Component {
                 <p>Renown: {renown}</p>
               </div>
 
-              <Button color="green">Submit</Button>
+              <Beauton as="button" color="green" shadow="lime" text="white" hover="darkgreen" style={{ margin: "30px" }}>
+                Submit
+              </Beauton> 
+              {/* <Button color="green">Submit</Button> */}
             </Form>
           </Segment>
         </Card>

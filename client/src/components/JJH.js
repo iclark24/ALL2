@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, Header, CardContent, CardMeta, Confirm, Button, Icon, Form, Grid} from "semantic-ui-react"
 import { AuthConsumer, } from "../providers/AuthProvider";
-
+import {Beauton} from "../Styles/bitsNBobs"
 
 class Adventure extends React.Component {
 
@@ -63,10 +63,10 @@ class Adventure extends React.Component {
               />
             </Form.Field>
             <Form.Field>
-              <Button color="green" size="tiny"  >
-              True Distance: 
-              </Button>
-              <Header inverted style={{marginTop: "5px"}}>
+            <Beauton as="button" color="green" shadow="lime" text="white" hover="darkgreen" size="small">
+              True Distance:
+            </Beauton> 
+              <Header inverted textAlign="center" style={{marginTop: "5px"}}>
                 {hypo} ft'
               </Header>
             </Form.Field>

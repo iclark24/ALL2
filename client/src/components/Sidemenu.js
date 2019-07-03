@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Button, Header, Icon, Rail, Menu, Sticky, Sidebar } from 'semantic-ui-react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import JJH from "./JJH"
 
@@ -19,7 +19,7 @@ class SideMenu extends React.Component {
     return (
       <>
         <Button.Group>
-          <Button icon basic inverted disabled={visible} onClick={this.handleShowClick}>
+          <Button icon basic inverted disabled={visible} onClick={this.handleShowClick} style={{position: "fixed"}}>
             <Icon circular name="bars"/>
           </Button>
           {/* <Button disabled={!visible} onClick={this.handleHideClick}>

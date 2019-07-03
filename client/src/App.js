@@ -24,10 +24,12 @@ class App extends Component {
         <Navbar/>
         <FetchUser>
           <World>
-            <Sidebar.Pushable>
-              <SideMenu/>
+            <Sidebar.Pushable style={{transform: "none", position: "fixed", zIndex: "3000" }}>
               <Sidebar.Pusher>
-                <Container style={{ paddingTop: "50px", marginBottom: "10vh"}}>
+              <SideMenu/>
+                </Sidebar.Pusher>
+              </Sidebar.Pushable>
+            <Container style={{paddingTop:"30px"}}>
                   <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/login" component={Login} />
@@ -39,9 +41,7 @@ class App extends Component {
                     <ProtectedRoute exact path="/characters/:character_id/adventures/new" component= {AdvForm}/>
                     <Route component={NoMatch} />
                   </Switch>
-                </Container>
-              </Sidebar.Pusher>
-            </Sidebar.Pushable>
+                  </Container>
           </World>
         </FetchUser>
       </>

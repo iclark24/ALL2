@@ -16,9 +16,10 @@ const faded = (val) => {
 export const World = styled.div`
   height: 95.3vh;
   top: 50px;
+  bottom: 50px;
   width: 100%;
   ${props => faded(props.faded)};
   background-size: 100 100;
   position: fixed;
-  overflow: scroll;
+  overflow: auto;
 `

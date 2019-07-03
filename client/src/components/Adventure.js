@@ -1,6 +1,7 @@
 import React from "react"
 import { Card, CardHeader, CardContent, CardMeta, Confirm, Button, Icon, CardDescription, Grid} from "semantic-ui-react"
 import { AuthConsumer, } from "../providers/AuthProvider";
+import {Beauton} from "../Styles/bitsNBobs"
 
 
 class Adventure extends React.Component {
@@ -21,13 +22,14 @@ class Adventure extends React.Component {
 
     return (
       <Grid.Column width="8">
-        <Card fluid>
+        <Card color="green" fluid>
           <CardContent>
           <CardHeader>
             {a_name}
-            <Button floated="right" size="mini" icon color="red" onClick={this.open}>
-                <Icon name="trash"/>
-            </Button>
+            <Beauton icon color="red" shadow="orange" text="white" hover="darkred" onClick={this.open} float="right" size="small">
+              {/* <Button icon color="red" onClick={this.open}> */}
+                <Icon size="small" name="trash"/>
+              </Beauton>
           </CardHeader>
           {
             user?
@@ -52,7 +54,7 @@ class Adventure extends React.Component {
           }
 
           </CardContent>
-          { this.props.levelmeth === "exp" ?
+          { this.props.levelmeth === "EXP" ?
             <CardMeta>
               {xp} Exp. | Tier {tier} | {tcpvalue} Tcp | {renown} Renown | {downtime} Downtime |{spent} Gold Earned
             </CardMeta>
